@@ -294,7 +294,8 @@ h1 span {
   box-shadow: var(--shadow);
 }
 
-.project-card > img {
+.project-card > img,
+.project-card > video {
   width: 100%;
   aspect-ratio: 1.35;
   background: #e5eceb;
@@ -592,7 +593,8 @@ h1 span {
     grid-template-columns: 1fr;
   }
 
-  .project-card > img {
+  .project-card > img,
+  .project-card > video {
     aspect-ratio: 1.55;
   }
 
