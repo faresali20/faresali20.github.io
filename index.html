@@ -1,151 +1,225 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Meet Fares Ali, explore his interests, and view his design projects.">
-    <meta name="theme-color" content="#102b3f">
-    <title>Fares Ali | Designer &amp; Future Programmer</title>
-    <link rel="stylesheet" href="style.css?v=video-boxes">
+    <meta name="description" content="الموقع الشخصي لفارس علي: مونتاج الفيديو، التصميم، ومشاريع برمجية باستخدام HTML وCSS وJavaScript.">
+    <meta name="theme-color" content="#09131e">
+    <title>فارس علي | مونتير ومصمم ومهتم بالبرمجة</title>
+    <link rel="stylesheet" href="style.css?v=video-native-ratio">
   </head>
   <body>
     <header class="site-header">
-      <nav class="navbar" aria-label="Main navigation">
-        <a class="brand" href="#hero">Fares<span>.</span></a>
+      <nav class="navbar content-width" aria-label="التنقل الرئيسي">
+        <a class="brand" href="#hero" aria-label="فارس علي - الرئيسية">فارس<span>.</span></a>
         <div class="nav-links">
-          <a href="#hero">Home</a>
-          <a href="#designs">Designs</a>
-          <a href="#dreams">My goals</a>
-          <a href="#contact">Say hello</a>
+          <a href="#about">نبذة عني</a>
+          <a href="#portfolio">أعمالي</a>
+          <a href="#code-project">مشروعي البرمجي</a>
+          <a href="#experience">الخبرات</a>
+          <a href="#contact">تواصل معي</a>
         </div>
       </nav>
     </header>
 
     <main>
-      <section id="hero" class="hero content-width">
+      <section id="hero" class="hero content-width" aria-labelledby="hero-heading">
         <div class="hero-text">
-          <p class="eyebrow">Hello, I'm Fares Ali</p>
-          <h1>Curious mind.<br><span>Creative ideas.</span></h1>
-          <p class="hero-intro">Welcome to my little corner of the web. I love learning, exploring design, and taking my first steps into programming.</p>
-          <a class="button button-primary" href="#designs">Explore my work <span aria-hidden="true">↓</span></a>
+          <p class="eyebrow">مونتير فيديو ومصمم | مهتم بالبرمجة</p>
+          <h1 id="hero-heading">أحوّل الأفكار إلى <span>محتوى مرئي</span> وتجارب رقمية.</h1>
+          <p class="hero-intro">أنا فارس علي، أعمل على مونتاج فيديوهات يوتيوب والريلز وتصميم الصور المصغرة، وأطوّر مهاراتي في البرمجة باستمرار.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#portfolio">شاهد أعمالي <span aria-hidden="true">↓</span></a>
+            <a class="button button-secondary" href="https://wa.me/201220914530" target="_blank" rel="noopener noreferrer">تواصل عبر واتساب <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
         <div class="hero-image-wrap">
-          <span class="badge">Always learning</span>
-          <img src="Fares.jpeg" alt="Fares Ali">
+          <span class="badge">فارس علي</span>
+          <img src="Fares.jpeg" alt="صورة فارس علي" fetchpriority="high">
         </div>
       </section>
 
-      <section class="interest-section content-width" aria-labelledby="interest-heading">
-        <div class="interest-image">
-          <img src="learning.jpg" alt="Books and learning resources">
+      <section id="about" class="about-section content-width" aria-labelledby="about-heading">
+        <div class="about-copy">
+          <p class="eyebrow">نبذة عني</p>
+          <h2 id="about-heading">إبداع بصري، وشغف بالتعلّم.</h2>
+          <p>أعمل بشكل حر مع صاحب قناة يوتيوب، وأتولى مونتاج الفيديوهات ومقاطع الريلز وتصميم الصور المصغرة وغلاف القناة. ساهم عملي في نمو ملحوظ في مشاهدات القناة ومشتركيها.</p>
+          <p>لدي معرفة بأساسيات HTML وCSS وJavaScript، ومستوى متقدم في اللغة الإنجليزية. أحب التعلّم بالتطبيق، وأبحث دائمًا عن فرص لتطوير مهاراتي الإبداعية والتقنية.</p>
         </div>
-        <div class="interest-copy">
-          <p class="eyebrow">A little about me</p>
-          <h2 id="interest-heading">Learning is my favourite hobby</h2>
-          <p>We all have different interests. For me, learning is exciting because it helps me discover more about the world around us.</p>
-          <p>Design is another skill I've enjoyed exploring, and here are a few projects I've made along the way.</p>
+        <div class="about-highlights" aria-label="مجالات عملي">
+          <div class="highlight-item">
+            <span class="highlight-number">01</span>
+            <div><h3>مونتاج الفيديو</h3><p>فيديوهات يوتيوب ومقاطع قصيرة من البداية للنهاية.</p></div>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-number">02</span>
+            <div><h3>التصميم</h3><p>صور مصغرة وأغلفة قنوات بهوية بصرية واضحة.</p></div>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-number">03</span>
+            <div><h3>تطوير الويب</h3><p>تعلّم أساسيات الويب وتطبيقها في مشاريع عملية.</p></div>
+          </div>
         </div>
       </section>
 
-      <section id="designs" class="designs-section content-width" aria-labelledby="designs-heading">
+      <section id="portfolio" class="portfolio-section content-width" aria-labelledby="portfolio-heading">
         <div class="section-heading">
-          <p class="eyebrow">A few things I've made</p>
-          <h2 id="designs-heading">My design projects</h2>
-          <p>Some experiments with styles, images, and creative tools.</p>
+          <p class="eyebrow">نماذج من أعمالي</p>
+          <h2 id="portfolio-heading">التصميم يلفت الانتباه، والفكرة تبقى.</h2>
+          <p>نماذج من تصاميم الصور المصغرة والمحتوى المرئي.</p>
         </div>
-        <div id="cards-container" class="cards-container">
-          <article class="project-card">
-            <div class="project-media">
-              <video controls playsinline preload="metadata" poster="design.jpg" aria-label="Special Design video">
-                <source src="motion.mp4" type="video/mp4">
-                Your browser does not support the video element.
+        <div class="portfolio-grid">
+          <article class="portfolio-card">
+            <div class="portfolio-video">
+              <video controls playsinline preload="metadata" aria-label="فيديو مونتاج من أعمال فارس">
+                <source src="0731.mp4" type="video/mp4">
+                متصفحك لا يدعم تشغيل الفيديو.
               </video>
+              <span class="video-index" aria-hidden="true">01</span>
             </div>
-            <div class="project-copy">
-              <h3>Special Design</h3>
-              <p>This is a special design I made as an attempt to incorporate AI into my work.</p>
-              <button class="details-button" type="button" aria-expanded="false">Show details</button>
-            </div>
-          </article>
-          <article class="project-card">
-            <div class="project-media">
-              <img src="thumbnail.jpg" alt="Video thumbnail designed for a client">
-            </div>
-            <div class="project-copy">
-              <h3>Video Thumbnail</h3>
-              <p>A video thumbnail I designed for a client.</p>
-              <button class="details-button" type="button" aria-expanded="false">Show details</button>
+            <div class="portfolio-card-copy">
+              <span class="project-type">مونتاج فيديو • 01</span>
+              <h3>من أعمال المونتاج</h3>
+              <p>نموذج من الفيديوهات التي عملت على مونتاجها.</p>
             </div>
           </article>
-          <article class="project-card">
-            <div class="project-media">
-              <video controls playsinline preload="metadata" poster="photoshop.jpg" aria-label="Photoshop Design video">
-                <source src="mai%20magdy.mp4" type="video/mp4">
-                Your browser does not support the video element.
+          <article class="portfolio-card">
+            <div class="portfolio-video">
+              <video controls playsinline preload="metadata" aria-label="فيديو مونتاج ثانٍ من أعمال فارس">
+                <source src="0730.mp4" type="video/mp4">
+                متصفحك لا يدعم تشغيل الفيديو.
               </video>
+              <span class="video-index" aria-hidden="true">02</span>
             </div>
-            <div class="project-copy">
-              <h3>Photoshop Design</h3>
-              <p>An attempt to explore a different style in Photoshop.</p>
-              <button class="details-button" type="button" aria-expanded="false">Show details</button>
+            <div class="portfolio-card-copy">
+              <span class="project-type">مونتاج فيديو • 02</span>
+              <h3>تجربة بصرية قصيرة</h3>
+              <p>مقطع يبرز اهتمامي بالإيقاع والتفاصيل البصرية.</p>
             </div>
           </article>
         </div>
-        <a class="text-link" href="https://www.instagram.com/abo_el_edit/?hl=en" target="_blank" rel="noopener noreferrer">See more of my work on Instagram <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="https://www.instagram.com/abo_el_edit/?hl=en" target="_blank" rel="noopener noreferrer">شاهد المزيد من أعمالي على إنستغرام <span aria-hidden="true">↗</span></a>
       </section>
 
-      <section id="dreams" class="dreams-section content-width">
-        <div>
-          <p class="eyebrow">Looking ahead</p>
-          <h2>My future dreams</h2>
+      <section id="code-project" class="code-project-section content-width" aria-labelledby="code-project-heading">
+        <div class="code-project-intro">
+          <p class="eyebrow">مشروع برمجي تفاعلي</p>
+          <h2 id="code-project-heading">منظّم جلسة المونتاج</h2>
+          <p>أداة ويب صغيرة تساعد على متابعة مراحل تجهيز الفيديو. صُممت لتجمع بين مجال عملي واهتمامي بتطوير الويب.</p>
+          <ul class="project-features">
+            <li>واجهة عربية متجاوبة باستخدام HTML وCSS.</li>
+            <li>تحديث حالة المهام ونسبة الإنجاز باستخدام JavaScript.</li>
+            <li>حفظ التقدم تلقائيًا في المتصفح باستخدام localStorage.</li>
+          </ul>
         </div>
-        <div>
-          <p>I look forward to becoming a professional programmer and designer. It will take effort, but I'm ready to keep learning and growing.</p>
+        <div class="workflow-app" aria-label="تطبيق منظم جلسة المونتاج">
+          <div class="workflow-header">
+            <div>
+              <span class="project-type">قائمة العمل</span>
+              <h3>خطوات تجهيز الفيديو</h3>
+            </div>
+            <span class="workflow-count" id="workflow-count">٠ من ٥</span>
+          </div>
+          <label class="progress-label" for="workflow-progress">التقدم</label>
+          <progress id="workflow-progress" value="0" max="5" aria-label="نسبة إنجاز خطوات المونتاج">0</progress>
+          <ul id="workflow-list" class="workflow-list">
+            <li><label><input type="checkbox" disabled> مراجعة الفكرة والملفات</label></li>
+            <li><label><input type="checkbox" disabled> ترتيب اللقطات على الخط الزمني</label></li>
+            <li><label><input type="checkbox" disabled> المونتاج وإضافة الصوت</label></li>
+            <li><label><input type="checkbox" disabled> تجهيز الصورة المصغرة</label></li>
+            <li><label><input type="checkbox" disabled> مراجعة وتصدير الفيديو</label></li>
+          </ul>
+          <div class="workflow-footer">
+            <p id="workflow-status" class="workflow-status" aria-live="polite">حدّد الخطوات التي أنجزتها.</p>
+            <button id="reset-workflow" class="reset-button" type="button" disabled>إعادة التعيين</button>
+          </div>
         </div>
       </section>
 
-      <section class="learning-banner content-width" aria-labelledby="learning-heading">
-        <img src="Studycode.jpg" alt="Studying programming with Sprix">
-        <div class="banner-overlay"></div>
-        <div class="banner-text">
-          <p class="eyebrow">Learning by doing</p>
-          <h2 id="learning-heading">Every new skill starts with curiosity.</h2>
-          <p>Learning programming with Sprix has been a wonderful experience.</p>
-        </div>
-      </section>
-
-      <section id="contact" class="contact-section content-width">
+      <section id="experience" class="experience-section content-width" aria-labelledby="experience-heading">
         <div class="section-heading">
-          <p class="eyebrow">Join the conversation</p>
-          <h2>Share an idea or some advice</h2>
-          <p>These demo forms aren't connected to a service, so messages won't be sent or saved.</p>
+          <p class="eyebrow">الخبرات العملية</p>
+          <h2 id="experience-heading">خبرة أتعلم منها كل يوم.</h2>
         </div>
-        <div class="forms-grid">
-          <form class="message-form">
-            <h3>Tell me about you</h3>
-            <label for="name">Your name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name" required>
-            <label for="hobby">Your hobby</label>
-            <input type="text" id="hobby" name="hobby" placeholder="Share your hobby with me" required>
-            <button class="button button-primary" type="submit">Submit</button>
-            <p class="form-status" aria-live="polite"></p>
-          </form>
-          <form class="message-form">
-            <h3>Leave me some advice</h3>
-            <label for="advice">Your advice</label>
-            <textarea id="advice" name="advice" rows="4" placeholder="What advice would you give me?" required></textarea>
-            <button class="button button-primary" type="submit">Send advice</button>
-            <p class="form-status" aria-live="polite"></p>
-          </form>
+        <div class="timeline">
+          <article class="timeline-item">
+            <span class="timeline-marker" aria-hidden="true"></span>
+            <div class="timeline-heading">
+              <div><h3>مونتير فيديو ومصمم — عمل حر</h3><p>قناة يوتيوب</p></div>
+              <span class="timeline-date">حالياً</span>
+            </div>
+            <ul>
+              <li>مونتاج فيديوهات القناة ومقاطع الريلز من البداية إلى النهاية.</li>
+              <li>تصميم الصور المصغرة للفيديوهات وغلاف القناة.</li>
+              <li>إنتاج المحتوى المرئي والتواصل مباشرة مع صاحب القناة.</li>
+            </ul>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-marker" aria-hidden="true"></span>
+            <div class="timeline-heading">
+              <div><h3>متدرب ومساعد</h3><p>صيدلية</p></div>
+              <span class="timeline-date">حوالي شهرين</span>
+            </div>
+            <ul>
+              <li>المساعدة في سير العمل اليومي والتعامل مع العملاء.</li>
+              <li>اكتساب معرفة أساسية بالأدوية.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" class="skills-section content-width" aria-labelledby="skills-heading">
+        <div class="section-heading">
+          <p class="eyebrow">مهاراتي</p>
+          <h2 id="skills-heading">أدوات أستخدمها ومهارات أواصل تطويرها.</h2>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-card"><span class="skill-icon" aria-hidden="true">✦</span><h3>المونتاج</h3><p>CapCut — متمرس</p></article>
+          <article class="skill-card"><span class="skill-icon" aria-hidden="true">◈</span><h3>التصميم</h3><p>صور مصغرة وأغلفة قنوات</p></article>
+          <article class="skill-card"><span class="skill-icon" aria-hidden="true">&lt;/&gt;</span><h3>البرمجة</h3><p>HTML وCSS وJavaScript</p></article>
+          <article class="skill-card"><span class="skill-icon" aria-hidden="true">文</span><h3>اللغات</h3><p>العربية: اللغة الأم • الإنجليزية: متقدم</p></article>
+        </div>
+      </section>
+
+      <section id="education" class="education-section content-width" aria-labelledby="education-heading">
+        <div class="section-heading">
+          <p class="eyebrow">التعليم والشهادات</p>
+          <h2 id="education-heading">أتعلم وأبني خبرتي خطوة بخطوة.</h2>
+        </div>
+        <div class="education-grid">
+          <article class="education-card">
+            <span class="education-label">التعليم</span>
+            <h3>الصف الثاني الثانوي</h3>
+            <p>طالب بالمرحلة الثانوية.</p>
+          </article>
+          <article class="education-card">
+            <span class="education-label">شهادات ودورات</span>
+            <h3>شهادتان دوليتان من TOFAS</h3>
+            <p>في البرمجة والذكاء الاصطناعي من جامعة هيروشيما (اليابان)، بعد اجتياز امتحاني الفصلين الدراسيين الأول والثاني.</p>
+          </article>
+          <article class="education-card">
+            <span class="education-label">دورة تدريبية</span>
+            <h3>دورة مونتاج</h3>
+            <p>مع هشام مصطفى.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="contact-section content-width" aria-labelledby="contact-heading">
+        <p class="eyebrow">لديك مشروع أو فرصة؟</p>
+        <h2 id="contact-heading">يسعدني أن نتواصل.</h2>
+        <p>للتعاون في المونتاج أو التصميم، تواصل معي مباشرة.</p>
+        <div class="contact-actions">
+          <a class="button button-light" href="https://wa.me/201220914530" target="_blank" rel="noopener noreferrer">راسلني على واتساب <span aria-hidden="true">↗</span></a>
+          <a class="contact-phone" href="tel:+201220914530" dir="ltr">01220914530</a>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>Made with curiosity by Fares Ali</p>
-      <a href="#hero">Back to top ↑</a>
+      <p>فارس علي <span aria-hidden="true">•</span> مونتاج، تصميم، وبرمجة</p>
+      <a href="#hero">العودة إلى الأعلى ↑</a>
     </footer>
-
-    <script src="script.js"></script>
+    <script src="script.js?v=video-native-ratio"></script>
   </body>
 </html>
