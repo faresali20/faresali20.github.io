@@ -117,3 +117,28 @@ if (revealTargets.length && "IntersectionObserver" in window) {
 
   document.body.classList.add("reveal-ready");
 }
+
+const sectionLinks = [...document.querySelectorAll(".nav-links a[href^='#']")];
+const navigationSections = sectionLinks
+  .map((link) => document.querySelector(link.getAttribute("href")))
+  .filter((section) => section instanceof HTMLElement);
+
+if (navigationSections.length && "IntersectionObserver" in window) {
+  const activeSectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        return;
+      }
+
+      sectionLinks.forEach((link) => {
+        if (link.getAttribute("href") === `#${entry.target.id}`) {
+          link.setAttribute("aria-current", "location");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+    });
+  }, { rootMargin: "-25% 0px -65% 0px" });
+
+  navigationSections.forEach((section) => activeSectionObserver.observe(section));
+}

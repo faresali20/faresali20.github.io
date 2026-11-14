@@ -1920,8 +1920,13 @@ body::before {
 }
 
 .nav-links a:hover::after,
-.nav-links a:focus-visible::after {
+.nav-links a:focus-visible::after,
+.nav-links a[aria-current="location"]::after {
   transform: scaleX(1);
+}
+
+.nav-links a[aria-current="location"] {
+  color: var(--teal);
 }
 
 @media (prefers-reduced-motion: reduce) {
