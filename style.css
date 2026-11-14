@@ -1464,6 +1464,14 @@ body::before {
   flex: 0 0 auto;
 }
 
+.icon-whatsapp {
+  color: #25d366;
+}
+
+.button-light .icon-whatsapp {
+  color: #075e54;
+}
+
 .skill-icon svg {
   width: 27px;
   height: 27px;
