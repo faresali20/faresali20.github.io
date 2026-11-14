@@ -503,6 +503,9 @@ h1 span {
 }
 
 .site-footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
   color: var(--ink);
   font-weight: 700;
   text-decoration: none;
@@ -1455,6 +1458,17 @@ body::before {
   border-radius: 12px;
 }
 
+.icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+}
+
+.skill-icon svg {
+  width: 27px;
+  height: 27px;
+}
+
 .button-primary {
   background: linear-gradient(115deg, #70e7d4, #39bdae);
   box-shadow: 0 8px 26px rgba(50, 191, 176, 0.2);
@@ -1856,5 +1870,218 @@ body::before {
   *::after {
     transition-duration: 0.01ms !important;
     transform: none !important;
+  }
+}
+
+.reveal-ready .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 650ms ease, transform 650ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-ready .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-ready .hero-image-wrap.reveal.is-visible {
+  transform: rotate(-2deg);
+}
+
+.reveal-ready .hero-image-wrap.reveal.is-visible:hover {
+  transform: rotate(0) translateY(-5px);
+}
+
+.nav-links a {
+  position: relative;
+}
+
+.nav-links a::after {
+  position: absolute;
+  right: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--teal);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 220ms ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .nav-links a::after {
+    transition: none;
+  }
+}
+
+body > main,
+body > .site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+.ambient-scene {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  perspective: 1100px;
+  pointer-events: none;
+}
+
+.ambient-globe {
+  position: absolute;
+  top: 7%;
+  right: max(-8vw, -100px);
+  width: clamp(300px, 43vw, 570px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 32%, rgba(116, 244, 224, 0.22), transparent 25%),
+    radial-gradient(circle at 62% 56%, rgba(55, 166, 173, 0.15), rgba(91, 77, 156, 0.08) 43%, transparent 70%);
+  filter: blur(7px);
+  transform-style: preserve-3d;
+  animation: ambient-drift 19s ease-in-out infinite alternate;
+}
+
+.ambient-orbit {
+  position: absolute;
+  top: 4%;
+  right: max(-13vw, -150px);
+  width: clamp(360px, 53vw, 700px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(104, 224, 208, 0.13);
+  border-radius: 50%;
+  box-shadow: 0 0 34px rgba(104, 224, 208, 0.045), inset 0 0 34px rgba(104, 224, 208, 0.035);
+  transform: rotateX(68deg) rotateZ(-24deg);
+  transform-style: preserve-3d;
+  animation: ambient-orbit 36s linear infinite;
+}
+
+.ambient-orbit::before {
+  position: absolute;
+  top: 9%;
+  left: 18%;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #68e0d0;
+  box-shadow: 0 0 18px 5px rgba(104, 224, 208, 0.36);
+  content: "";
+}
+
+.ambient-orbit--tilted {
+  top: 12%;
+  right: max(-17vw, -190px);
+  width: clamp(390px, 58vw, 760px);
+  border-color: rgba(149, 124, 224, 0.11);
+  box-shadow: 0 0 36px rgba(132, 108, 204, 0.04);
+  transform: rotateX(72deg) rotateY(24deg) rotateZ(48deg);
+  animation-duration: 48s;
+  animation-direction: reverse;
+}
+
+.ambient-orbit--tilted::before {
+  background: #a28be9;
+  box-shadow: 0 0 18px 5px rgba(162, 139, 233, 0.32);
+}
+
+.ambient-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #9af4e5;
+  box-shadow: 0 0 15px 3px rgba(104, 224, 208, 0.38);
+  animation: ambient-twinkle 4s ease-in-out infinite alternate;
+}
+
+.ambient-particle--one {
+  top: 19%;
+  right: 19%;
+}
+
+.ambient-particle--two {
+  top: 38%;
+  right: 7%;
+  width: 3px;
+  height: 3px;
+  animation-delay: -1.5s;
+}
+
+.ambient-particle--three {
+  top: 11%;
+  right: 38%;
+  width: 3px;
+  height: 3px;
+  animation-delay: -2.7s;
+}
+
+@keyframes ambient-drift {
+  from {
+    transform: translate3d(0, 0, -40px) rotateY(-12deg);
+  }
+  to {
+    transform: translate3d(-28px, 24px, 35px) rotateY(12deg);
+  }
+}
+
+@keyframes ambient-orbit {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+
+@keyframes ambient-twinkle {
+  from {
+    opacity: 0.28;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 0.95;
+    transform: scale(1.25);
+  }
+}
+
+@media (max-width: 760px) {
+  .ambient-globe {
+    top: 11%;
+    right: -38%;
+    width: min(94vw, 440px);
+  }
+
+  .ambient-orbit {
+    top: 12%;
+    right: -54%;
+    width: min(112vw, 520px);
+  }
+
+  .ambient-orbit--tilted {
+    top: 15%;
+    right: -65%;
+    width: min(124vw, 580px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-scene * {
+    animation: none !important;
   }
 }

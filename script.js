@@ -92,3 +92,28 @@ if (workflowList && progressBar && progressCount && workflowStatus && resetButto
 
   renderWorkflow();
 }
+
+const revealTargets = document.querySelectorAll(
+  ".hero-text, .hero-image-wrap, .about-copy, .highlight-item, .section-heading, " +
+  ".portfolio-card, .text-link, .code-project-intro, .workflow-app, .timeline-item, " +
+  ".skill-card, .education-card, .contact-section > *"
+);
+
+if (revealTargets.length && "IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.14, rootMargin: "0px 0px -36px 0px" });
+
+  revealTargets.forEach((target, index) => {
+    target.classList.add("reveal");
+    target.style.setProperty("--reveal-delay", `${(index % 4) * 90}ms`);
+    revealObserver.observe(target);
+  });
+
+  document.body.classList.add("reveal-ready");
+}
