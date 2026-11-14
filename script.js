@@ -123,22 +123,26 @@ const navigationSections = sectionLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter((section) => section instanceof HTMLElement);
 
-if (navigationSections.length && "IntersectionObserver" in window) {
-  const activeSectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        return;
-      }
-
-      sectionLinks.forEach((link) => {
-        if (link.getAttribute("href") === `#${entry.target.id}`) {
-          link.setAttribute("aria-current", "location");
-        } else {
-          link.removeAttribute("aria-current");
-        }
-      });
+if (navigationSections.length) {
+  function updateActiveSection() {
+    const activationLine = window.innerHeight * 0.35;
+    const activeSection = navigationSections.find((section) => {
+      const bounds = section.getBoundingClientRect();
+      return bounds.top <= activationLine && bounds.bottom > activationLine;
     });
-  }, { rootMargin: "-25% 0px -65% 0px" });
 
-  navigationSections.forEach((section) => activeSectionObserver.observe(section));
+    sectionLinks.forEach((link) => {
+      if (activeSection && link.getAttribute("href") === `#${activeSection.id}`) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", updateActiveSection, { passive: true });
+  window.addEventListener("resize", updateActiveSection);
+  window.addEventListener("pageshow", updateActiveSection);
+  window.addEventListener("hashchange", updateActiveSection);
+  updateActiveSection();
 }
