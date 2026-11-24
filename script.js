@@ -164,33 +164,3 @@ if (navigationSections.length) {
   updateActiveSection();
 }
 
-// Keep the page light while the visitor moves between video samples.
-const portfolioVideos = [...document.querySelectorAll(".portfolio-video video")];
-portfolioVideos.forEach((video) => {
-  video.addEventListener("play", () => {
-    portfolioVideos.forEach((otherVideo) => {
-      if (otherVideo !== video) otherVideo.pause();
-    });
-  });
-});
-
-if ("IntersectionObserver" in window && portfolioVideos.length) {
-  const videoObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting && !entry.target.paused) entry.target.pause();
-    });
-  }, { threshold: 0.12 });
-  portfolioVideos.forEach((video) => videoObserver.observe(video));
-}
-
-document.addEventListener("visibilitychange", () => {
-  if (document.hidden) portfolioVideos.forEach((video) => video.pause());
-});
-
-// Cache the lightweight portfolio shell on supported HTTPS hosts for offline visits.
-if ("serviceWorker" in navigator && location.protocol === "https:") {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js").catch(() => {});
-  }, { once: true });
-}
-
