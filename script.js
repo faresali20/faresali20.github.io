@@ -6,6 +6,23 @@ const workflowItems = [
   { id: "export", text: "مراجعة وتصدير الفيديو" }
 ];
 
+const scrollProgressBar = document.querySelector("#scroll-progress-bar");
+if (scrollProgressBar) {
+  let progressFrame = 0;
+  const updateScrollProgress = () => {
+    if (progressFrame) return;
+    progressFrame = window.requestAnimationFrame(() => {
+      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+      scrollProgressBar.style.transform = `scaleX(${Math.min(1, Math.max(0, progress))})`;
+      progressFrame = 0;
+    });
+  };
+  window.addEventListener("scroll", updateScrollProgress, { passive: true });
+  window.addEventListener("resize", updateScrollProgress);
+  updateScrollProgress();
+}
+
 const storageKey = "fares-editing-workflow-v1";
 const workflowList = document.querySelector("#workflow-list");
 const progressBar = document.querySelector("#workflow-progress");
@@ -146,3 +163,4 @@ if (navigationSections.length) {
   window.addEventListener("hashchange", updateActiveSection);
   updateActiveSection();
 }
+

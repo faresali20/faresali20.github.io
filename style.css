@@ -2098,3 +2098,71 @@ body > .site-footer {
     animation: none !important;
   }
 }
+
+/* Finishing touches: keyboard access, scroll feedback, and clearer interactions. */
+.skip-link {
+  position: fixed;
+  z-index: 20;
+  top: 12px;
+  right: 12px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--ink);
+  color: #fff;
+  transform: translateY(-160%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.scroll-progress {
+  position: fixed;
+  z-index: 10;
+  inset: 0 0 auto;
+  height: 3px;
+  pointer-events: none;
+}
+
+.scroll-progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #7c63ca, #16a59c);
+  transform: scaleX(0);
+  transform-origin: right;
+  will-change: transform;
+}
+
+.button,
+.text-link,
+.contact-phone,
+.site-footer a {
+  transition: transform 180ms ease, color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.workflow-list li {
+  transition: background-color 180ms ease, padding-inline 180ms ease;
+}
+
+.workflow-list li:has(input:checked) {
+  padding-inline: 8px;
+  background: rgba(17, 124, 128, 0.045);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skip-link,
+  .button,
+  .workflow-list li {
+    transition: none !important;
+  }
+}
+

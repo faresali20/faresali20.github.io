@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://faresali20.github.io/sitemap.xml
+
